@@ -31,15 +31,24 @@
           font-size: 3em;
           font-weight: bold;
       }
+
+      /* CSS to limit image size */
+      #picture {
+        max-width: 500px; /* Limits the image width */
+        max-height: 500px; /* Limits the image height */
+        width: auto; /* Maintains aspect ratio */
+        height: auto; /* Maintains aspect ratio */
+      }
     </style>
   </head>
   <body>
     <div class="pouet">
       <h1 id="response">Oui</h1>
-      <img src="https://raw.githubusercontent.com/jadeen/estcequelacitedysestouverte/refs/heads/main/images/1630417845183.jpeg" alt="Harpe Noire" />
+      <img src="https://raw.githubusercontent.com/jadeen/estcequelacitedysestouverte/refs/heads/main/images/1630417845183.jpeg" alt="Harpe Noire" id="picture"/>
       <p>L'abus d'alcool est dangereux pour la santé, à consommer avec modération.</p>
     </div>
   </body>
+
   <script>
   const date = new Date();
 
@@ -57,11 +66,16 @@
 
   const time = date.getHours() * 60 + date.getMinutes();
   const text = document.getElementById('response');
+  const picture = document.getElementById('picture');
 
   if (openHours[dateOfTheWeek].some(range => time >= range[0] && time <= range[1])) {
     text.textContent = 'Oui';
+    picture.src = "https://raw.githubusercontent.com/jadeen/estcequelacitedysestouverte/refs/heads/main/images/1630417845183.jpeg";
+    picture.alt = "Harpe noire";
   } else {
     text.textContent = 'Non';
+    picture.src = "https://raw.githubusercontent.com/jadeen/estcequelacitedysestouverte/refs/heads/main/images/citedysclosed.webp";
+    picture.alt = "Bar fermé. Revenez plus tard !";
   }
 </script>
 
