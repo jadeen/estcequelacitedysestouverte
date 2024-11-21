@@ -57,11 +57,14 @@
 
   const time = date.getHours() * 60 + date.getMinutes();
   const text = document.getElementById('response');
+  const img = document.querySelector('img');
 
   if (openHours[dateOfTheWeek].some(range => time >= range[0] && time <= range[1])) {
     text.textContent = 'Oui';
   } else {
     text.textContent = 'Non';
+    img?.src="https://raw.githubusercontent.com/jadeen/estcequelacitedysestouverte/refs/heads/main/images/non.jpeg";
+    img?.alt="Je sais pas trop, mais ça a pas l'air d'être la grande forme";
   }
 </script>
 
